@@ -5,11 +5,11 @@ import subprocess
 default_diffname="diff"
 parser = argparse.ArgumentParser(description='Program designed to highlight differences between two latex-projects')
 parser.add_argument('orig',
-                    help='path to workdir of original latex-project')
+                    help='path to main .tex-file of original latex-project')
 parser.add_argument('changed',
-                    help='path to workdir of changed latex-projects')
+                    help='path to main .tex-file of changed latex-projects')
 parser.add_argument("-o",'--output',
-                    help=f'path to project containing the differences, if not given changed/{default_diffname} will be used')
+                    help=f'path to project containing the differences, if not given os.path.dirname(changed)/{default_diffname} will be used')
 args = parser.parse_args()
 
 def run_bash_cmd(cmd,dir="."):
